@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        .carousel {
+            margin: 100px auto;
+            width: 90%;
+            border: 5px solid beige;
+            display: flex;
+            overflow: auto;
+            
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        @keyframes spin {
+            from {
+                translate: 0;
+            }
+
+            to {
+                translate: -100%;
+            }
+        }
+    </style>
+
+    <div class="carousel">
+        <style>
+            .group {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1em;
+                animation: spin 10s infinite linear;
+                padding-right: 1em;
+            }
+        </style>
+        <div class="group">
+            <style>
+                .card {
+                    flex: 0 0 5cm;
+                    height: 5cm;
+                    padding: 1em;
+                    background: blanchedalmond;
+                    font-size: 3rem;
+                    border-radius: .2em;
+                    text-align: center;
+                    align-content: center;
+                }
+            </style>
+
+            <div class="card">1</div>
+            <div class="card">2</div>
+            <div class="card">3</div>
+            <div class="card">4</div>
+            <div class="card">5</div>
+        </div>
+        <style>
+            .group {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1em;
+                animation: spin 10s infinite linear;
+            
+            }
+        </style>
+        <div aria hidden class="group">
+            <style>
+                .card {
+                    flex: 0 0 5cm;
+                    height: 5cm;
+                    padding: 1em;
+                    background: blanchedalmond;
+                    font-size: 3rem;
+                    border-radius: .2em;
+                    text-align: center;
+                    align-content: center;
+                }
+            </style>
+
+            <div class="card">1</div>
+            <div class="card">2</div>
+            <div class="card">3</div>
+            <div class="card">4</div>
+            <div class="card">5</div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Carousel - Tailwind CSS</title>
+    <!-- Tailwind CSS v3 + basic interactivity -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- custom keyframes & scrollbar-hide (preserve exact animation & behavior) -->
+    <style>
+        /* keep exact spin keyframes (translate 0 → -100%) for continuous marquee */
+        @keyframes spin {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        /* hide scrollbar in .carousel container (same as overflow: auto but no visible scrollbar) */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE/Edge */
+            scrollbar-width: none;     /* Firefox */
+        }
+        /* optional: ensure .group child elements keep baseline flex behavior unchanged */
+        .group-card-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+        }
+    </style>
+    <!-- override any default tailwind reset to keep original 5cm card size & gap behavior fully intact -->
+</head>
+<body class="m-0 p-0 bg-white">
+
+    <!-- 
+        =======================================================
+        FULLY CONVERTED TO TAILWIND CSS
+        - All spacing, layout, colors, borders, animation replaced with Tailwind utilities
+        - Preserves exactly the same: 2 groups, infinite linear scroll, hidden scrollbar, 
+          first group extra padding-right, cards width/height 5cm, beige border, gap 1em  
+        - Keyframes 'spin' and scrollbar hiding remain as isolated custom styles (not interfering with tailwind)
+        =======================================================
+    -->
+
+    <!-- main carousel container: margin, width, border, flex, overflow auto + hidden scrollbar -->
+    <div class="carousel mx-auto my-[100px] w-[90%] border-[5px] border-[#f5f5dc] flex overflow-auto scrollbar-hide">
+        
+        <!-- FIRST GROUP (visible, with extra padding-right: 1em for seamless looping) -->
+        <div class="group flex items-center justify-center gap-[1em] animate-[spin_10s_infinite_linear] pr-[1em]">
+            <!-- 5 cards, using Tailwind arbitrary values for exact 5cm dimensions & blanchedalmond background -->
+            <div class="card flex-[0_0_5cm] h-[5cm] p-[1em] bg-[#ffebcd] text-5xl rounded-[0.2em] text-center flex items-center justify-center shadow-sm">1</div>
+            <div class="card flex-[0_0_5cm] h-[5cm] p-[1em] bg-[#ffebcd] text-5xl rounded-[0.2em] text-center flex items-center justify-center shadow-sm">2</div>
+            <div class="card flex-[0_0_5cm] h-[5cm] p-[1em] bg-[#ffebcd] text-5xl rounded-[0.2em] text-center flex items-center justify-center shadow-sm">3</div>
+            <div class="card flex-[0_0_5cm] h-[5cm] p-[1em] bg-[#ffebcd] text-5xl rounded-[0.2em] text-center flex items-center justify-center shadow-sm">4</div>
+            <div class="card flex-[0_0_5cm] h-[5cm] p-[1em] bg-[#ffebcd] text-5xl rounded-[0.2em] text-center flex items-center justify-center shadow-sm">5</div>
+        </div>
+
+        <!-- SECOND GROUP (duplicate, aria-hidden, NO extra padding-right, identical animation and styles) -->
+        <div aria-hidden="true" class="group flex items-center justify-center gap-[1em] animate-[spin_10s_infinite_linear]">
+            <div class="ca g animation (spin keyframes), 
+           * second duplicate group for seamless loop, 
+           * first group retains extra right padding to prevent clipping during animation. 
+         - Pure tailwind utilities used for layout, spacing, backgrounds, borders, fonts, and flex behavior. 
+         - Custom spin keyframe + scrollbar hiding preserved because tailwind doesn't provide built-in equivalent for that exact translate animation.
+    -->
+</body>
+</html>
